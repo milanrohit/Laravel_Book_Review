@@ -1,12 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookController;
 
-// ✅ Home page handled by HomeController
+// Homepage route — loads home.blade.php with $books
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// ✅ Book listing page
-/* Route::get('/books', [BookController::class, 'index'])->name('books.index');
-Route::get('/books/{id}', [BookController::class, 'home'])->name('books.home'); */
+// Book listing page — shows all books
+Route::get('/books', [BookController::class, 'index'])->name('books.index');
+
+// Single book review page — shows details for one book
+Route::get('/books/{id}', [BookController::class, 'show'])->name('books.show');
