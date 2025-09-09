@@ -3,22 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Book;
-use App\Models\Review;
 
-class BookController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $title = $request->query('title');
-
-        $books = Book::when($title, fn ($query, $title) 
-                => $query->where('title', 'like', '%' . $title . '%'))
-                    ->get();
-        return view('books.index', ['books' => $books]);
+        //
     }
 
     /**
